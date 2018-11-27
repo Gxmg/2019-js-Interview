@@ -1,0 +1,22 @@
+{
+  "name": "2019-js-interview",
+  "version": "1.0.0",
+  "description": "2019年前端面试都聊啥？一起来看看",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/se7en-1992/2019-js-Interview.git"
+  },
+  "author": "5se7en",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/se7en-1992/2019-js-Interview/issues"
+  },
+  "homepage": "https://github.com/se7en-1992/2019-js-Interview#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

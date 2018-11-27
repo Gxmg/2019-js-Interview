@@ -1,0 +1,23 @@
+# dependencies
+node_modules
+
+# config
+# production.js
+modules/addlike.js
+modules/autoReward.js
+modules/timer.js
+
+# tools
+# tools
+
+# logs
+npm-debug.log
+
+# other
+.nuxt
+dist
+.vscode
+.idea
+newrelic_agent.log
+tree.md
+.DS_Store

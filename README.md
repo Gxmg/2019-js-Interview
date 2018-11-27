@@ -139,3 +139,10 @@
     ```
     
     使用普通回调、promises、observables、generator 或 async-await 编写所需的函数。尝试使用至少 3 种不同的技术解决这个问题。
+
+    解决思路：emmmmm这道题我真的不是特别想解，因为如果要用普通回调和promises真的就要陷入了回调地狱了。心累，这边我就写一下async-await的方法吧。首先选择一个http请求库（axios，ajax，fetch都可以），我们这里选择用`axios`，在service目录写好请求api等。
+
+    ```javascript
+    import { getStudents, getAllCourses, getEverylCourses } from '~/service/getData.js'
+
+    ```
