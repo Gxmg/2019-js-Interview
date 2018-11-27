@@ -21,7 +21,7 @@ console.log(a); // [1, 2, 3, 4, 5, 1, 4, 9, 16, 25]
 
 ```javascript
 Array.prototype.multiply = function () {  //给数组原型上添加一个方法
-    this.push(...this.map(v => v * v)); //改变原数组
+    this.push(...this.map(x => x * x)); //改变原数组
     return this;
 };
 
