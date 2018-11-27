@@ -138,4 +138,4 @@
     ]
     ```
     
-    使用普通回调、promises、observables、generator 或 async-wait 编写所需的函数。尝试使用至少 3 种不同的技术解决这个问题。
+    使用普通回调、promises、observables、generator 或 async-await 编写所需的函数。尝试使用至少 3 种不同的技术解决这个问题。
