@@ -185,4 +185,6 @@
       return result;
     }
 
+    getAverage(75) //[{ "id": 1, "name": "John", "average": 70.5 },{ "id": 3, "name": "Lois", "average": 67 }]
+
     ```
