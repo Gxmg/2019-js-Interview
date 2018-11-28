@@ -211,7 +211,7 @@
             this.$tpl = props.template.bind(this.$data);
             const self = this;
             this.dom = document.querySelector(self.$el);  //这里其实这样写是不好的，不过就本题来说为了不拔高难度就这样吧
-            this.$binding = new Proxy(this.$data,{
+            this.$setState = new Proxy(this.$data,{
               set(target,prop,value){
                 target[prop] = value
                 self._render()
@@ -236,3 +236,9 @@
       }
     })
     ```
+
+6. 解释 JavaScript 的并发模型
+
+你是否熟悉 Elixir、Clojure、Java 等其他编程语言中使用的并发模型？
+
+提示：事件循环、任务队列、调用栈、堆等。
