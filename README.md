@@ -4,6 +4,10 @@
 
 原文链接: [2019年前端面试都聊啥？一起来看看](https://juejin.im/post/5bf5610be51d452a1353b08d)
 
+### 前言
+
+笔者只是一个从事前端开发不足三年的小前端，对于有的问题看的还不是深刻，如果有不对的地方，还请各位大佬给予指正。写这个答案的目的，更多的也是为了给自己补补课。
+
 ### 基本的JavaScript问题
 
 1. 使以下代码正常运行:
@@ -187,4 +191,46 @@
 
     getAverage(75) //[{ "id": 1, "name": "John", "average": 70.5 },{ "id": 3, "name": "Lois", "average": 67 }]
 
+    ```
+
+5. 使用 JavaScript 代理实现简单的数据绑定
+
+    提示：ES Proxy 允许你拦截对任何对象属性或方法的调用。首先，每当底层绑定对象发生变更时，都应更新 DOM。
+
+    解决思路：这套题说实话，你要说简单也很简单，你要说难，真的可以说是很难了，作为一个小前端的我，看到这题瑟瑟发抖。vue2的数据绑定用的是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。vue3用proxy重新实现了数据绑定。这里面要分析的东西就很多了，为什么proxy改写？他的相对优点等等。我这里不展开了，我就贴个链接，大家有兴趣可以自行了解下：[面试官: 实现双向绑定Proxy比defineproperty优劣如何?](https://juejin.im/post/5acd0c8a6fb9a028da7cdfaf)。
+
+    然后回到这一题我们来看看当底层绑定对象发生变更时，都应更新DOM。所以说这道题要怎么解？DOM是要我去实现一个`virtual-dom`吗？看到这题。我的内心几乎是崩溃的。于是又去补补`virtual-dom`的课。这题的实现我就不用`virtual-dom`了。不然真的是强行提高难度。下面给出这题解题代码：
+
+    ```javascript
+    class Demo {
+        constructor(props){
+            this.$el = props.el;
+            this.$data = props.data;
+            this.$tpl = props.template.bind(this.$data);
+            const self = this;
+            this.dom = document.querySelector(self.$el)
+            this.$binding = new Proxy(this.$data,{
+              set(target,prop,value){
+                target[prop] = value
+                self._render()
+                return true
+              }
+            })
+            this._render()
+        }
+        _render(){
+            //这里其实应该用virtual-dom来实现
+            this.dom.innerHTML = this.$tpl()
+        }
+    }
+
+    const app = new Demo({
+      el: '#app',
+      data: {
+          text: 'world'
+      },
+      template(){
+        return `<div>Hello ${this.text}</div>`
+      }
+    })
     ```
