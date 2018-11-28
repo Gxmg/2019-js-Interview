@@ -159,18 +159,18 @@
       let result = [];
       try {
         const students = await getStudents();
-        const filterClassroom = students.filter(x=>x.classroomId === classroomId);
+        const filterClassroom = students.filter(x=>x.classroomId === classroomId); //过滤特定classroomId的教室数组
         filterClassroom.map((item)=>{
           try {
             studentId = item.id;
             name = item.name;
-            scoreList = [];
+            scoreList = []; //初始化各科成绩数组
             temp = await getAllCourses(item.id);
             temp.map((v)=>{
               try {
                 score = await getEverylCourses(v.id, v.studentId);
                 scoreList.push(score);
-                total = 0;
+                total = 0;//初始化各科成绩总分
                 scoreList.map((x)=>{
                   total+=x.score
                 })
