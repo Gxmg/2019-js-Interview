@@ -210,7 +210,7 @@
             this.$data = props.data;
             this.$tpl = props.template.bind(this.$data);
             const self = this;
-            this.dom = document.querySelector(self.$el)  //这里其实这样写是不可取的
+            this.dom = document.querySelector(self.$el);  //这里其实这样写是不好的，不过就本题来说为了不拔高难度就这样吧
             this.$binding = new Proxy(this.$data,{
               set(target,prop,value){
                 target[prop] = value
