@@ -252,3 +252,7 @@
     另外，请注意 [[Construct]] 和 [[Call]]。
 
     [JS 的 new 到底是干什么的？](https://zhuanlan.zhihu.com/p/23987456)
+
+8. JavaScript 中有哪些不同的函数调用模式？请详细解释。
+
+    提示：有四种模式，函数调用、方法调用、.call() 和.apply()。
