@@ -242,3 +242,5 @@
     你是否熟悉 Elixir、Clojure、Java 等其他编程语言中使用的并发模型？
 
     提示：事件循环、任务队列、调用栈、堆等。
+
+    详细答案请看MDN上的[并发模型与事件循环](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop)
