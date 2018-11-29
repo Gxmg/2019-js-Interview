@@ -251,4 +251,4 @@
 
     另外，请注意 [[Construct]] 和 [[Call]]。
 
-    [https://zhuanlan.zhihu.com/p/23987456](https://zhuanlan.zhihu.com/p/23987456)
+    [JS 的 new 到底是干什么的？](https://zhuanlan.zhihu.com/p/23987456)
