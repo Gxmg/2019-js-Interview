@@ -246,6 +246,7 @@
     [并发模型与事件循环](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop)
 
 7. “new”关键字在 JavaScript 中有什么作用？
+
     提示：在 JavaScript 中，new 是用于实例化对象的运算符。
-    
+
     另外，请注意 [[Construct]] 和 [[Call]]。
