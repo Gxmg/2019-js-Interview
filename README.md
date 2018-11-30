@@ -322,7 +322,7 @@
     ③ 构造器调用模式，会用来创建一个对象，还是执行一段代码，this 表示当前对象
 
     ```javascript
-    //返回值没有手动添加返回值，默认返回 this
+    //没有手动return添加返回值，默认返回 this
     function Person(){
         this.name = '5se7en';
         this.age = 18;
