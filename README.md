@@ -322,9 +322,34 @@
     ③ 构造器调用模式，会用来创建一个对象，还是执行一段代码，this 表示当前对象
 
     ```javascript
+    //返回值没有手动添加返回值，默认返回 this
     function Person(){
         this.name = '5se7en';
         this.age = 18;
         console.log(this);
     }
+    var p1=new Person();
+    console.log(p1.name)  //5se7en
+
+    //返回了一个基本数据类型（number / boolean / string / null / undefined），最终返回 this
+    function P2(){
+        this.age=18;
+        return "abc";
+    }
+    var p2=new P2();//p2.age=18
+
+    // 返回了一个复杂数据类型（对象），最终返回该对象
+    function P3(){
+        this.age=10;
+        return {};
+    }
+    var p3=new P3();
+    console.log(p3.age); //undefined
+
+    function P4(){
+        this.age=10;
+        return [1,3,5];
+    }
+    var p4=new P4();
+    console.log(p4.age);//undefined
     ```
