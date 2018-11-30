@@ -346,6 +346,7 @@
     var p3=new P3();
     console.log(p3.age); //undefined
 
+    // 返回了一个复杂数据类型（对象），最终返回该对象
     function P4(){
         this.age=10;
         return [1,3,5];
