@@ -336,7 +336,8 @@
         this.age=18;
         return "abc";
     }
-    var p2=new P2();//p2.age=18
+    var p2=new P2();
+    console.log(p2.age)  //18
 
     // 返回了一个复杂数据类型（对象），最终返回该对象
     function P3(){
