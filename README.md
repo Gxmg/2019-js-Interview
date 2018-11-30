@@ -256,3 +256,75 @@
 8. JavaScript 中有哪些不同的函数调用模式？请详细解释。
 
     提示：有四种模式，函数调用、方法调用、.call() 和.apply()。
+
+    所有的 this 都是由当前函数决定，最终都是由函数的四种调用模式决定的。
+
+    JavaScript 函数四种调用模式
+    - 函数调用模式
+    - 方法形态
+    - 构造器形态
+    - 上下文形态（call, apply）
+
+    ① 函数调用模式，只会执行一段代码，同时函数中的 this 是全局对象 window；返回值由return语句决定，如果没有return语句就表示没有返回值
+
+    ```javascript
+    function A(){
+        console.log(this);
+    }
+    A();//window
+    function B(){
+        return function(){
+            console.log(this);
+        }
+    }
+    B()();//window，这也是一次函数调用模式
+    function C(){
+        D(); //函数调用模式,window
+        function D(){
+            console.log(this);
+        }
+    }
+    C(); //window
+    ```
+
+    ② 方法调用模式，只会执行一段代码，同时方法中的 this 是方法的所有者，即当前的实例对象；返回值由 return 语句决定
+
+    ```javascript
+    var obj = {
+        name: '5se7en',
+        say: function(){
+            console.log(this.name);
+        }
+    }
+    obj.say();//方法调用模式  5se7en
+
+    function A(){
+        console.log(this);
+    }
+    var obj2 = {
+        say: A  //将A函数赋值给obj2的say属性
+    }
+    obj2.say();//方法调用模式。this指向obj2
+
+    var obj3 = {
+        name: '57',
+        say: function)({
+            console.log(this.name)
+        })
+    }
+    var obj4 = {
+        name: '伍柒',
+        say: obj3.say //将obj3.say函数赋值给obj4的say
+    }
+    obj4.s2();//方法调用模式：this——>obj4
+    ```
+
+    ③ 构造器调用模式，会用来创建一个对象，还是执行一段代码，this 表示当前对象
+
+    ```javascript
+    function Person(){
+        this.name = '5se7en';
+        this.age = 18;
+        console.log(this);
+    }
+    ```
