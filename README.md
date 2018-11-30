@@ -355,3 +355,9 @@
     var p4=new P4();
     console.log(p4.age);//undefined
     ```
+
+9. 介绍一些即将发布的新的 ECMAScript 提案。
+
+    提示：与 2018 年一样，BigInt、部分函数、管道操作符等。
+
+    请自行查看[ecma262](https://github.com/tc39/ecma262)
