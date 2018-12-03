@@ -363,7 +363,7 @@
     console.log(p4.age);//undefined
     ```
 
-    ④ .call() 和.apply()调用模式
+    ④ 上下文形态（call, apply）
 
     ```javascript
     function fn(){
