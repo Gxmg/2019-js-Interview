@@ -268,10 +268,17 @@
     ① 函数调用模式，只会执行一段代码，同时函数中的 this 是全局对象 window；返回值由return语句决定，如果没有return语句就表示没有返回值
 
     ```javascript
+    //使用函数调用模式调用函数时，非严格模式下，this被绑定到全局对象；在严格模式下，this是undefined
     function A(){
         console.log(this);
     }
     A();//window
+    function A(){
+        'use strict';
+        console.log(this); //undefined
+    }
+    A();
+
     function B(){
         return function(){
             console.log(this);
@@ -356,8 +363,39 @@
     console.log(p4.age);//undefined
     ```
 
+    ④ .call() 和.apply()调用模式
+
+    ```javascript
+    function fn(){
+        console.log(this);
+    }
+    var obj = {a:1};
+
+    //传递一个 null / undefined ，this 指向 window
+    fn.call(null) //window
+    fn.call(undefined) //window
+    //传递一个 数字 / 字符串 / 布尔值，this 指向 对应的基本包装类型的对象（Number / String / Boolean）
+    fn.call(1) //Number的实例
+    fn.call("abc")  //String的实例
+    fn.call(true) //Boolean的实例
+    //传递一个 对象：this 指向该对象
+    fn.call(obj) //obj
+
+    //如果有参数的情况
+    var obj1 = {};
+    function sum(x,y){
+        return x+y;
+    }
+    console.log(sum.call(obj1,1,2));//3
+    console.log(sum.apply(obj1,[1,2]));//3
+    ```
+
 9. 介绍一些即将发布的新的 ECMAScript 提案。
 
     提示：与 2018 年一样，BigInt、部分函数、管道操作符等。
 
     请自行查看[ecma262](https://github.com/tc39/ecma262)
+
+10. JavaScript 中的 iterator 和 iterable 是什么？你知道有哪些内置的 iterator 吗？
+
+    
